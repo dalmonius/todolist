@@ -10,11 +10,25 @@ app.get("/", function(req, res){
     let currentDay = today.getDay();
     let day = "";
 
-    if (currentDay === 6 || currentDay === 0){
-        day = "weekend";
+    if (currentDay === 0){
+        day = "sunday"
+    } else if (currentDay === 1){
+        day = "monday"
+    } else if (currentDay === 2){
+        day = "tuesday"
+    } else if (currentDay === 3){
+        day = "wednesday"
+    } else if (currentDay === 4){
+        day = "thursday"
+    } else if (currentDay === 5){
+        day = "friday"
+    } else if (currentDay === 6){
+        day = "saturday"
     } else {
-        day = "weekday";
-        }
+        day = "not a weekday"
+    }
+
+    // I know this is not best practice, probably it's a better idea to use a switch statement
 
     res.render("list", {kindOfDay: day});
 
