@@ -7,6 +7,11 @@
     <title>to do list ejs</title>
 </head>
 <body>
-    <h1>it's a <%= kindOfDay %> </h1>
+
+    <% if (kindOfDay === 6 || kindOfDay === 0){ %>
+        <h1 style="color: purple"><%= kindOfDay %>'s to-do list</h1>
+    <% } else { %>
+        <h1 style="color: gray"><%= kindOfDay %>'s to-do list</h1>
+    <% } %>
 </body>
 </html>
