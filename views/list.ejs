@@ -7,11 +7,18 @@
     <title>to do list ejs</title>
 </head>
 <body>
+    <h1><%= kindOfDay %>'s to-do list</h1>
 
-    <% if (kindOfDay === 6 || kindOfDay === 0){ %>
-        <h1 style="color: purple"><%= kindOfDay %>'s to-do list</h1>
-    <% } else { %>
-        <h1 style="color: gray"><%= kindOfDay %>'s to-do list</h1>
-    <% } %>
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li><%= newListItem %></li>
+    </ul>
+    
+    <form action="/" method="post">
+        <input type="text" name="newItem" placeholder="add new task" required>
+        <button type="submit" name="button">add</button>
+    </form>
+
 </body>
 </html>
