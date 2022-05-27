@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css"></link>
     <title>to do list ejs</title>
 </head>
 <body>
-    <h1><%= kindOfDay %>'s to-do list</h1>
-    
-    <ul>
-        <% for (let i=0; i < newListItems.length; i++){ %>
-            <li><%= newListItems[i] %></li>
-        <% } %>
-    </ul>
-    
-    <form action="/" method="post">
-        <input type="text" name="newItem" placeholder="add new task" required>
-        <button type="submit" name="button">add</button>
-    </form> 
+    <div class="box" id="heading">
+        <h1><%= kindOfDay %>'s to-do list</h1>
+    </div>
 
+    <div class="box">
+        <% for (let i=0; i < newListItems.length; i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newListItems[i] %></p>
+            </div>
+        <% } %>
+        <form action="/" method="post" class="item">
+            <input type="text" name="newItem" placeholder="add new task" autocomplete="off">
+            <button type="submit" name="button">+</button>
+        </form> 
+    </div>
 </body>
 </html>
