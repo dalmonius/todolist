@@ -8,17 +8,17 @@
 </head>
 <body>
     <h1><%= kindOfDay %>'s to-do list</h1>
-
+    
     <ul>
-        <li>item</li>
-        <li>item</li>
-        <li><%= newListItem %></li>
+        <% for (let i=0; i < newListItems.length; i++){ %>
+            <li><%= newListItems[i] %></li>
+        <% } %>
     </ul>
     
     <form action="/" method="post">
         <input type="text" name="newItem" placeholder="add new task" required>
         <button type="submit" name="button">add</button>
-    </form>
+    </form> 
 
 </body>
 </html>
