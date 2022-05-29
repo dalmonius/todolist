@@ -18,9 +18,14 @@ app.get("/", function(req, res){
     });
 
 app.post("/", function(req, res){
-    let newTask = req.body.newItem;
-    newTasks.push(newTask);
-    res.redirect("/");
+    let item = req.body.newItem;
+    if (req.body.button === "Work"){   
+        workTasks.push(item);
+        res.redirect("/work");
+    } else {
+        newTasks.push(item);
+        res.redirect("/");
+    }
 });
 
 app.get("/work", function(req, res){
@@ -28,15 +33,9 @@ app.get("/work", function(req, res){
 });
 
 app.post("/work", function(req, res){
-    console.log(req.body.newItem);  
     let item = req.body.newItem;
-    if (req.body.newItem === "work"){
-        workTasks.push(item);
-        res.redirect("/work");
-    } else {
-        newListItems.push(item);
-        res.redirect("/");
-    }
+    workTasks.push(item);
+    res.redirect("/work");
 });
 
 app.listen(3000, function(){
