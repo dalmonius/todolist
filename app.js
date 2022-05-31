@@ -11,10 +11,8 @@ let workTasks = [];
 app.set("view engine", 'ejs');
 
 app.get("/", function(req, res){
-    let today = new Date();
-    let options = {weekday: 'long', month: 'long', day: 'numeric'};
-
-    res.render("list", {listTitle: today.toLocaleDateString("en-US", options), newListItems: newTasks});
+    
+    res.render("list", {listTitle: day, newListItems: newTasks});
     });
 
 app.post("/", function(req, res){
@@ -26,7 +24,6 @@ app.post("/", function(req, res){
         newTasks.push(item);
         res.redirect("/");
     }
-    // commit
 });
 
 app.get("/work", function(req, res){
@@ -38,6 +35,10 @@ app.post("/work", function(req, res){
     workTasks.push(item);
     res.redirect("/work");
 });
+
+app.get("/about", function(req, res){
+    res.render("about");
+})
 
 app.listen(3000, function(){
     console.log("server is running on port 3000...");
